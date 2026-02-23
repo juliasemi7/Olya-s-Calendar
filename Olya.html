@@ -111,9 +111,16 @@
             background-color: #FFF9F0; /* Очень светлый чистый бежевый */
         }
         
-        /* Пакет 20 дней (январь-февраль) - светло-зеленый */
-        .calendar td.package-20day {
+        /* Первый пакет 20 дней (январь-февраль) - светло-зеленый */
+        .calendar td.package-20day-jan {
             background-color: rgba(144, 238, 144, 0.4); /* Светло-зеленый - LightGreen */
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        /* Второй пакет 20 дней (февраль-март) - лавандовый */
+        .calendar td.package-20day-feb {
+            background-color: rgba(230, 230, 250, 0.5); /* Лавандовый - Lavender */
             font-weight: 600;
             color: #2c3e50;
         }
@@ -126,9 +133,17 @@
             background-color: white;
         }
         
-        /* Комбинация для дней с обоими событиями (пакет + Оля) */
-        .calendar td.both-packages {
+        /* Комбинация для дней с обоими событиями (первый пакет + Оля) */
+        .calendar td.both-packages-jan {
             background-color: rgba(144, 238, 144, 0.4); /* Светло-зеленый фон */
+            font-weight: 700;
+            color: #2c3e50;
+            border: 2px solid #1e6bb8; /* Темный синий для обводки */
+        }
+        
+        /* Комбинация для дней с обоими событиями (второй пакет + Оля) */
+        .calendar td.both-packages-feb {
+            background-color: rgba(230, 230, 250, 0.5); /* Лавандовый фон */
             font-weight: 700;
             color: #2c3e50;
             border: 2px solid #1e6bb8; /* Темный синий для обводки */
@@ -177,9 +192,14 @@
             border: 1px solid #e74c3c;
         }
         
-        .package-20day-color {
+        .package-20day-jan-color {
             background-color: rgba(144, 238, 144, 0.4); /* Светло-зеленый */
             border: 1px solid #90EE90;
+        }
+        
+        .package-20day-feb-color {
+            background-color: rgba(230, 230, 250, 0.5); /* Лавандовый */
+            border: 1px solid #E6E6FA;
         }
         
         .package-olya-color {
@@ -187,8 +207,13 @@
             border: 2px solid #1e6bb8; /* Темный синий */
         }
         
-        .both-packages-color {
+        .both-packages-jan-color {
             background-color: rgba(144, 238, 144, 0.4); /* Светло-зеленый */
+            border: 2px solid #1e6bb8; /* Темный синий */
+        }
+        
+        .both-packages-feb-color {
+            background-color: rgba(230, 230, 250, 0.5); /* Лавандовый */
             border: 2px solid #1e6bb8; /* Темный синий */
         }
         
@@ -251,16 +276,24 @@
                     <span>Выходные дни</span>
                 </div>
                 <div class="legend-item">
-                    <div class="legend-color package-20day-color"></div>
+                    <div class="legend-color package-20day-jan-color"></div>
                     <span>Пакет 20 дней (январь-февраль)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color package-20day-feb-color"></div>
+                    <span>Пакет 20 дней (февраль-март)</span>
                 </div>
                 <div class="legend-item">
                     <div class="legend-border package-olya-color"></div>
                     <span>Занятие Оли</span>
                 </div>
                 <div class="legend-item">
-                    <div class="legend-border both-packages-color"></div>
-                    <span>Оба события (пакет + Оля)</span>
+                    <div class="legend-border both-packages-jan-color"></div>
+                    <span>Оба события (1-й пакет + Оля)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-border both-packages-feb-color"></div>
+                    <span>Оба события (2-й пакет + Оля)</span>
                 </div>
             </div>
         </main>
@@ -285,8 +318,8 @@
         // Год для календаря
         const year = 2026;
         
-        // Пакет из 20 рабочих дней (январь-февраль) - светло-зеленый
-        const package20Days = [
+        // ПЕРВЫЙ пакет из 20 рабочих дней (январь-февраль) - светло-зеленый
+        const package20DaysJan = [
             "2026-01-28", "2026-01-29", "2026-01-30",
             "2026-02-02", "2026-02-03", "2026-02-04", "2026-02-05", "2026-02-06",
             "2026-02-09", "2026-02-10", "2026-02-11", "2026-02-12", "2026-02-13",
@@ -294,12 +327,23 @@
             "2026-02-23", "2026-02-24"
         ];
         
-        // Занятия Оли (среда, начиная с 28.01.2026) - 4 занятия
+        // ВТОРОЙ пакет из 20 рабочих дней (февраль-март) - лавандовый
+        // Начинаем с 25 февраля - 20 рабочих дней
+        const package20DaysFeb = [
+            "2026-02-25", "2026-02-26", "2026-02-27",
+            "2026-03-02", "2026-03-03", "2026-03-04", "2026-03-05", "2026-03-06",
+            "2026-03-09", "2026-03-10", "2026-03-11", "2026-03-12", "2026-03-13",
+            "2026-03-16", "2026-03-17", "2026-03-18", "2026-03-19", "2026-03-20",
+            "2026-03-23", "2026-03-24"
+        ];
+        
+        // Занятия Оли (среда) - всего 8 занятий (4 в первом пакете + 4 во втором)
         const packageOlya = [
-            "2026-01-28", // Ср - первое занятие
-            "2026-02-04", // Ср
-            "2026-02-11", // Ср
-            "2026-02-18"  // Ср - последнее занятие
+            // Первые 4 занятия (в первом пакете)
+            "2026-01-28", "2026-02-04", "2026-02-11", "2026-02-18",
+            
+            // Следующие 4 занятия (во втором пакете, начиная с 25 февраля)
+            "2026-02-25", "2026-03-04", "2026-03-11", "2026-03-18"
         ];
         
         // Функция для получения количества дней в месяце
@@ -319,10 +363,16 @@
             return `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
         }
         
-        // Функция для проверки, входит ли дата в пакет из 20 дней
-        function isInPackage20Days(year, month, day) {
+        // Функция для проверки, входит ли дата в первый пакет из 20 дней
+        function isInPackage20DaysJan(year, month, day) {
             const dateStr = formatDate(year, month, day);
-            return package20Days.includes(dateStr);
+            return package20DaysJan.includes(dateStr);
+        }
+        
+        // Функция для проверки, входит ли дата во второй пакет из 20 дней
+        function isInPackage20DaysFeb(year, month, day) {
+            const dateStr = formatDate(year, month, day);
+            return package20DaysFeb.includes(dateStr);
         }
         
         // Функция для проверки, входит ли дата в занятия Оли
@@ -378,17 +428,22 @@
                     // Добавляем текущий день месяца
                     else {
                         const isWeekend = dayOfWeek === 5 || dayOfWeek === 6; // 5 = суббота, 6 = воскресенье
-                        const inPackage20Days = isInPackage20Days(year, month, dayCounter);
+                        const inPackage20DaysJan = isInPackage20DaysJan(year, month, dayCounter);
+                        const inPackage20DaysFeb = isInPackage20DaysFeb(year, month, dayCounter);
                         const inPackageOlya = isInPackageOlya(year, month, dayCounter);
                         
                         let dayClass = "";
                         if (isWeekend) dayClass += " weekend";
                         
                         // Проверяем комбинации событий
-                        if (inPackage20Days && inPackageOlya) {
-                            dayClass += " both-packages";
-                        } else if (inPackage20Days) {
-                            dayClass += " package-20day";
+                        if (inPackage20DaysJan && inPackageOlya) {
+                            dayClass += " both-packages-jan";
+                        } else if (inPackage20DaysFeb && inPackageOlya) {
+                            dayClass += " both-packages-feb";
+                        } else if (inPackage20DaysJan) {
+                            dayClass += " package-20day-jan";
+                        } else if (inPackage20DaysFeb) {
+                            dayClass += " package-20day-feb";
                         } else if (inPackageOlya) {
                             dayClass += " package-olya";
                         }

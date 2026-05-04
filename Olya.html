@@ -11,47 +11,47 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
             background-color: #f8f9fa;
             color: #333;
             line-height: 1.6;
             padding: 20px;
         }
-        
+
         .container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
         }
-        
+
         header {
             text-align: center;
             margin-bottom: 30px;
             padding-bottom: 20px;
             border-bottom: 2px solid #4a6fa5;
         }
-        
+
         h1 {
             color: #2c3e50;
             font-size: 2.2rem;
             margin-bottom: 10px;
         }
-        
+
         .year-label {
             font-size: 1.3rem;
             color: #4a6fa5;
             font-weight: 600;
             letter-spacing: 2px;
         }
-        
+
         .calendar-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 25px;
             margin-bottom: 30px;
         }
-        
+
         .month-container {
             background-color: white;
             border-radius: 12px;
@@ -59,12 +59,12 @@
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
+
         .month-container:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
         }
-        
+
         .month-header {
             background-color: #4a6fa5;
             color: white;
@@ -73,13 +73,13 @@
             font-size: 1.4rem;
             font-weight: 600;
         }
-        
+
         .calendar {
             width: 100%;
             padding: 15px;
             border-collapse: collapse;
         }
-        
+
         .calendar th {
             color: #4a6fa5;
             font-weight: 600;
@@ -88,7 +88,7 @@
             text-align: center;
             border-bottom: 1px solid #eee;
         }
-        
+
         .calendar td {
             text-align: center;
             padding: 10px 5px;
@@ -99,67 +99,37 @@
             width: 40px;
             height: 40px;
         }
-        
+
         .calendar td:hover {
             background-color: #f0f4ff;
         }
-        
+
         .calendar td.weekend {
             color: #e74c3c;
             font-weight: 600;
             background-color: #FFF9F0;
         }
-        
-        .calendar td.package-20day-1 {
-            background-color: rgba(144, 238, 144, 0.4);
-            font-weight: 600;
-            color: #2c3e50;
-        }
-        
-        .calendar td.package-20day-2 {
-            background-color: rgba(173, 216, 230, 0.5);
-            font-weight: 600;
-            color: #2c3e50;
-        }
-        
-        .calendar td.package-20day-3 {
-            background-color: rgba(255, 218, 185, 0.6);
-            font-weight: 600;
-            color: #2c3e50;
-        }
-        
+
+        .calendar td.package-1 { background-color: rgba(144, 238, 144, 0.4); font-weight: 600; }
+        .calendar td.package-2 { background-color: rgba(173, 216, 230, 0.5); font-weight: 600; }
+        .calendar td.package-3 { background-color: rgba(255, 218, 185, 0.6); font-weight: 600; }
+        .calendar td.package-4 { background-color: rgba(255, 182, 193, 0.5); font-weight: 600; }
+
         .calendar td.package-olya {
             font-weight: 700;
-            color: #2c3e50;
             border: 2px solid #1e6bb8;
             background-color: white;
         }
-        
-        .calendar td.both-packages-1 {
-            background-color: rgba(144, 238, 144, 0.4);
-            font-weight: 700;
-            color: #2c3e50;
-            border: 2px solid #1e6bb8;
-        }
-        
-        .calendar td.both-packages-2 {
-            background-color: rgba(173, 216, 230, 0.5);
-            font-weight: 700;
-            color: #2c3e50;
-            border: 2px solid #1e6bb8;
-        }
-        
-        .calendar td.both-packages-3 {
-            background-color: rgba(255, 218, 185, 0.6);
-            font-weight: 700;
-            color: #2c3e50;
-            border: 2px solid #1e6bb8;
-        }
-        
+
+        .calendar td.both-1 { background-color: rgba(144, 238, 144, 0.4); font-weight: 700; border: 2px solid #1e6bb8; }
+        .calendar td.both-2 { background-color: rgba(173, 216, 230, 0.5); font-weight: 700; border: 2px solid #1e6bb8; }
+        .calendar td.both-3 { background-color: rgba(255, 218, 185, 0.6); font-weight: 700; border: 2px solid #1e6bb8; }
+        .calendar td.both-4 { background-color: rgba(255, 182, 193, 0.5); font-weight: 700; border: 2px solid #1e6bb8; }
+
         .calendar td.other-month {
             color: #ccc;
         }
-        
+
         .legend {
             display: flex;
             justify-content: center;
@@ -174,66 +144,37 @@
             margin-left: auto;
             margin-right: auto;
         }
-        
+
         .legend-item {
             display: flex;
             align-items: center;
             gap: 8px;
         }
-        
+
         .legend-color {
             width: 20px;
             height: 20px;
             border-radius: 4px;
         }
-        
+
         .legend-border {
             width: 20px;
             height: 20px;
             border-radius: 4px;
             border: 2px solid;
         }
-        
-        .weekend-color {
-            background-color: #FFF9F0;
-            border: 1px solid #e74c3c;
-        }
-        
-        .package-20day-1-color {
-            background-color: rgba(144, 238, 144, 0.4);
-            border: 1px solid #90EE90;
-        }
-        
-        .package-20day-2-color {
-            background-color: rgba(173, 216, 230, 0.5);
-            border: 1px solid #ADD8E6;
-        }
-        
-        .package-20day-3-color {
-            background-color: rgba(255, 218, 185, 0.6);
-            border: 1px solid #FFDAB9;
-        }
-        
-        .package-olya-color {
-            background-color: white;
-            border: 2px solid #1e6bb8;
-        }
-        
-        .both-packages-1-color {
-            background-color: rgba(144, 238, 144, 0.4);
-            border: 2px solid #1e6bb8;
-        }
-        
-        .both-packages-2-color {
-            background-color: rgba(173, 216, 230, 0.5);
-            border: 2px solid #1e6bb8;
-        }
-        
-        .both-packages-3-color {
-            background-color: rgba(255, 218, 185, 0.6);
-            border: 2px solid #1e6bb8;
-        }
-        
+
+        .weekend-color { background-color: #FFF9F0; border: 1px solid #e74c3c; }
+        .package-1-color { background-color: rgba(144, 238, 144, 0.4); border: 1px solid #90EE90; }
+        .package-2-color { background-color: rgba(173, 216, 230, 0.5); border: 1px solid #ADD8E6; }
+        .package-3-color { background-color: rgba(255, 218, 185, 0.6); border: 1px solid #FFDAB9; }
+        .package-4-color { background-color: rgba(255, 182, 193, 0.5); border: 1px solid #FFB6C1; }
+        .package-olya-color { background-color: white; border: 2px solid #1e6bb8; }
+        .both-1-color { background-color: rgba(144, 238, 144, 0.4); border: 2px solid #1e6bb8; }
+        .both-2-color { background-color: rgba(173, 216, 230, 0.5); border: 2px solid #1e6bb8; }
+        .both-3-color { background-color: rgba(255, 218, 185, 0.6); border: 2px solid #1e6bb8; }
+        .both-4-color { background-color: rgba(255, 182, 193, 0.5); border: 2px solid #1e6bb8; }
+
         footer {
             text-align: center;
             margin-top: 40px;
@@ -250,22 +191,24 @@
             <h1>2026</h1>
             <div class="year-label">Olya's Calendar</div>
         </header>
-        
+
         <main>
             <div class="calendar-grid" id="calendar-container"></div>
-            
+
             <div class="legend">
                 <div class="legend-item"><div class="legend-color weekend-color"></div><span>Выходные дни</span></div>
-                <div class="legend-item"><div class="legend-color package-20day-1-color"></div><span>Пакет 20 дней (январь-февраль)</span></div>
-                <div class="legend-item"><div class="legend-color package-20day-2-color"></div><span>Пакет 20 дней (февраль-март)</span></div>
-                <div class="legend-item"><div class="legend-color package-20day-3-color"></div><span>Пакет 20 дней (апрель-май)</span></div>
+                <div class="legend-item"><div class="legend-color package-1-color"></div><span>Пакет 20 дней (январь-февраль)</span></div>
+                <div class="legend-item"><div class="legend-color package-2-color"></div><span>Пакет 20 дней (февраль-март)</span></div>
+                <div class="legend-item"><div class="legend-color package-3-color"></div><span>Пакет 20 дней (апрель-май)</span></div>
+                <div class="legend-item"><div class="legend-color package-4-color"></div><span>Пакет 20 дней (май-июнь)</span></div>
                 <div class="legend-item"><div class="legend-border package-olya-color"></div><span>Занятие Оли</span></div>
-                <div class="legend-item"><div class="legend-border both-packages-1-color"></div><span>1-й пакет + Оля</span></div>
-                <div class="legend-item"><div class="legend-border both-packages-2-color"></div><span>2-й пакет + Оля</span></div>
-                <div class="legend-item"><div class="legend-border both-packages-3-color"></div><span>3-й пакет + Оля</span></div>
+                <div class="legend-item"><div class="legend-border both-1-color"></div><span>1-й пакет + Оля</span></div>
+                <div class="legend-item"><div class="legend-border both-2-color"></div><span>2-й пакет + Оля</span></div>
+                <div class="legend-item"><div class="legend-border both-3-color"></div><span>3-й пакет + Оля</span></div>
+                <div class="legend-item"><div class="legend-border both-4-color"></div><span>4-й пакет + Оля</span></div>
             </div>
         </main>
-        
+
         <footer>
             <p>Календарь создан с использованием HTML, CSS и JavaScript</p>
             <p>© 2026 Календарь с выделенными пакетами дней</p>
@@ -276,141 +219,116 @@
         const monthNames = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
         const dayNames = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
         const year = 2026;
-        
-        // ПЕРВЫЙ ПАКЕТ: 28 января - 24 февраля (светло-зеленый)
-        const package20Days1 = [
-            "2026-01-28", "2026-01-29", "2026-01-30",
-            "2026-02-02", "2026-02-03", "2026-02-04", "2026-02-05", "2026-02-06",
-            "2026-02-09", "2026-02-10", "2026-02-11", "2026-02-12", "2026-02-13",
-            "2026-02-16", "2026-02-17", "2026-02-18", "2026-02-19", "2026-02-20",
-            "2026-02-23", "2026-02-24"
+
+        // ---------- ПАКЕТЫ (20 дней) ----------
+        // 1-й пакет: 28 января – 24 февраля
+        const package1 = [
+            "2026-01-28","2026-01-29","2026-01-30",
+            "2026-02-02","2026-02-03","2026-02-04","2026-02-05","2026-02-06",
+            "2026-02-09","2026-02-10","2026-02-11","2026-02-12","2026-02-13",
+            "2026-02-16","2026-02-17","2026-02-18","2026-02-19","2026-02-20",
+            "2026-02-23","2026-02-24"
         ];
-        
-        // ВТОРОЙ ПАКЕТ: 25 февраля - 24 марта (голубой)
-        const package20Days2 = [
-            "2026-02-25", "2026-02-26", "2026-02-27",
-            "2026-03-02", "2026-03-03", "2026-03-04", "2026-03-05", "2026-03-06",
-            "2026-03-09", "2026-03-10", "2026-03-11", "2026-03-12", "2026-03-13",
-            "2026-03-16", "2026-03-17", "2026-03-18", "2026-03-19", "2026-03-20",
-            "2026-03-23", "2026-03-24"
+
+        // 2-й пакет: 25 февраля – 24 марта
+        const package2 = [
+            "2026-02-25","2026-02-26","2026-02-27",
+            "2026-03-02","2026-03-03","2026-03-04","2026-03-05","2026-03-06",
+            "2026-03-09","2026-03-10","2026-03-11","2026-03-12","2026-03-13",
+            "2026-03-16","2026-03-17","2026-03-18","2026-03-19","2026-03-20",
+            "2026-03-23","2026-03-24"
         ];
-        
-        // ТРЕТИЙ ПАКЕТ: 8 апреля - 5 мая (персиковый) - ИСПРАВЛЕН (добавлено 1 мая)
-        const package20Days3 = [
-            "2026-04-08", "2026-04-09", "2026-04-10",
-            "2026-04-13", "2026-04-14", "2026-04-15", "2026-04-16", "2026-04-17",
-            "2026-04-20", "2026-04-21", "2026-04-22", "2026-04-23", "2026-04-24",
-            "2026-04-27", "2026-04-28", "2026-04-29", "2026-04-30",
-            "2026-05-01", // 1 мая добавлен!
-            "2026-05-04", "2026-05-05"
+
+        // 3-й пакет: 8 апреля – 5 мая
+        const package3 = [
+            "2026-04-08","2026-04-09","2026-04-10",
+            "2026-04-13","2026-04-14","2026-04-15","2026-04-16","2026-04-17",
+            "2026-04-20","2026-04-21","2026-04-22","2026-04-23","2026-04-24",
+            "2026-04-27","2026-04-28","2026-04-29","2026-04-30",
+            "2026-05-04","2026-05-05"
         ];
-        
-        // ЗАНЯТИЯ ОЛИ - СРЕДА (4 занятия в каждом пакете)
-        const packageOlya = [
-            // Первый пакет (январь-февраль) - 4 занятия
-            "2026-01-28", "2026-02-04", "2026-02-11", "2026-02-18",
-            
-            // Второй пакет (февраль-март) - 4 занятия
-            "2026-02-25", "2026-03-04", "2026-03-11", "2026-03-18",
-            
-            // Третий пакет (апрель-май) - 4 занятия (по средам)
-            "2026-04-08", "2026-04-15", "2026-04-22", "2026-04-29"
+
+        // 4-й пакет: 6 мая – 2 июня (20 дней, розовый)
+        const package4 = [
+            "2026-05-06","2026-05-07","2026-05-08",
+            "2026-05-11","2026-05-12","2026-05-13","2026-05-14","2026-05-15",
+            "2026-05-18","2026-05-19","2026-05-20","2026-05-21","2026-05-22",
+            "2026-05-25","2026-05-26","2026-05-27","2026-05-28","2026-05-29",
+            "2026-06-01","2026-06-02"
         ];
-        
-        function getDaysInMonth(year, month) {
-            return new Date(year, month + 1, 0).getDate();
-        }
-        
-        function getFirstDayOfMonth(year, month) {
-            const firstDay = new Date(year, month, 1).getDay();
-            return firstDay === 0 ? 6 : firstDay - 1;
-        }
-        
-        function formatDate(year, month, day) {
-            return `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-        }
-        
-        function isInPackage20Days1(year, month, day) {
-            return package20Days1.includes(formatDate(year, month, day));
-        }
-        
-        function isInPackage20Days2(year, month, day) {
-            return package20Days2.includes(formatDate(year, month, day));
-        }
-        
-        function isInPackage20Days3(year, month, day) {
-            return package20Days3.includes(formatDate(year, month, day));
-        }
-        
-        function isInPackageOlya(year, month, day) {
-            return packageOlya.includes(formatDate(year, month, day));
-        }
-        
-        function createMonthCalendar(year, month) {
-            const daysInMonth = getDaysInMonth(year, month);
-            const firstDayIndex = getFirstDayOfMonth(year, month);
-            
-            let html = `<div class="month-container"><div class="month-header">${monthNames[month]} ${year}</div><table class="calendar"><thead>  <tr>`;
-            
-            for (let day of dayNames) {
-                const isWeekend = day === "Сб" || day === "Вс";
-                html += `<th${isWeekend ? ' style="color:#e74c3c;"' : ''}>${day}</th>`;
+
+        // ---------- ЗАНЯТИЯ ОЛИ (только среда, 4 в каждом пакете) ----------
+        const lessons = [
+            // пакет 1
+            "2026-01-28","2026-02-04","2026-02-11","2026-02-18",
+            // пакет 2
+            "2026-02-25","2026-03-04","2026-03-11","2026-03-18",
+            // пакет 3
+            "2026-04-08","2026-04-15","2026-04-22","2026-04-29",
+            // пакет 4 (с 6 мая)
+            "2026-05-06","2026-05-13","2026-05-20","2026-05-27"
+        ];
+
+        function getDaysInMonth(y, m) { return new Date(y, m + 1, 0).getDate(); }
+        function getFirstDayOfMonth(y, m) { const d = new Date(y, m, 1).getDay(); return d === 0 ? 6 : d - 1; }
+        function formatDate(y, m, d) { return `${y}-${String(m + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`; }
+
+        function isInPackage(pkg, y, m, d) { return pkg.includes(formatDate(y, m, d)); }
+        function isLesson(y, m, d) { return lessons.includes(formatDate(y, m, d)); }
+
+        function createMonthCalendar(y, m) {
+            const daysInMonth = getDaysInMonth(y, m);
+            const startOffset = getFirstDayOfMonth(y, m);
+            let html = `<div class="month-container"><div class="month-header">${monthNames[m]} ${y}</div><table class="calendar"><thead></table>`;
+            for (let wd of dayNames) {
+                const isW = (wd === "Сб" || wd === "Вс");
+                html += `<th${isW ? ' style="color:#e74c3c;"' : ''}>${wd}</th>`;
             }
-            
-            html += `</tr></thead><tbody>`;
-            
-            let dayCounter = 1;
-            
-            for (let week = 0; week < 6; week++) {
-                html += "<tr>";
-                
-                for (let dayOfWeek = 0; dayOfWeek < 7; dayOfWeek++) {
-                    if (week === 0 && dayOfWeek < firstDayIndex) {
-                        const prevMonthDays = getDaysInMonth(year, month - 1);
-                        const prevMonthDay = prevMonthDays - (firstDayIndex - dayOfWeek - 1);
-                        html += `<td class="other-month">${prevMonthDay}</td>`;
-                    } else if (dayCounter > daysInMonth) {
-                        const nextMonthDay = dayCounter - daysInMonth;
-                        html += `<td class="other-month">${nextMonthDay}</td>`;
-                        dayCounter++;
-                    } else {
-                        const isWeekend = dayOfWeek === 5 || dayOfWeek === 6;
-                        const in1 = isInPackage20Days1(year, month, dayCounter);
-                        const in2 = isInPackage20Days2(year, month, dayCounter);
-                        const in3 = isInPackage20Days3(year, month, dayCounter);
-                        const inOlya = isInPackageOlya(year, month, dayCounter);
-                        
-                        let dayClass = isWeekend ? " weekend" : "";
-                        
-                        if (in1 && inOlya) dayClass += " both-packages-1";
-                        else if (in2 && inOlya) dayClass += " both-packages-2";
-                        else if (in3 && inOlya) dayClass += " both-packages-3";
-                        else if (in1) dayClass += " package-20day-1";
-                        else if (in2) dayClass += " package-20day-2";
-                        else if (in3) dayClass += " package-20day-3";
-                        else if (inOlya) dayClass += " package-olya";
-                        
-                        html += `<td class="${dayClass}">${dayCounter}</td>`;
-                        dayCounter++;
-                    }
+            html += `</thead><tbody>`;
+            let day = 1;
+            let totalCells = Math.ceil((startOffset + daysInMonth) / 7) * 7;
+            for (let i = 0; i < totalCells; i++) {
+                if (i % 7 === 0) html += "<tr>";
+                if (i >= startOffset && day <= daysInMonth) {
+                    const in1 = isInPackage(package1, y, m, day);
+                    const in2 = isInPackage(package2, y, m, day);
+                    const in3 = isInPackage(package3, y, m, day);
+                    const in4 = isInPackage(package4, y, m, day);
+                    const inLesson = isLesson(y, m, day);
+                    const isWeekend = (new Date(y, m, day).getDay() === 0 || new Date(y, m, day).getDay() === 6);
+                    let cls = isWeekend ? "weekend" : "";
+                    if (in1 && inLesson) cls = "both-1";
+                    else if (in2 && inLesson) cls = "both-2";
+                    else if (in3 && inLesson) cls = "both-3";
+                    else if (in4 && inLesson) cls = "both-4";
+                    else if (in1) cls = "package-1";
+                    else if (in2) cls = "package-2";
+                    else if (in3) cls = "package-3";
+                    else if (in4) cls = "package-4";
+                    else if (inLesson) cls = "package-olya";
+                    html += `<td class="${cls}">${day}</td>`;
+                    day++;
+                } else {
+                    let prevMonth = m === 0 ? 11 : m - 1;
+                    let prevYear = m === 0 ? y - 1 : y;
+                    let daysPrev = getDaysInMonth(prevYear, prevMonth);
+                    let prevDay = daysPrev - (startOffset - i - 1);
+                    html += `<td class="other-month">${prevDay}</td>`;
                 }
-                
-                html += "</tr>";
-                if (dayCounter > daysInMonth) break;
+                if (i % 7 === 6) html += "</tr>";
             }
-            
             html += `</tbody></table></div>`;
             return html;
         }
-        
-        function createYearCalendar() {
+
+        function render() {
             const container = document.getElementById("calendar-container");
+            container.innerHTML = "";
             for (let month = 0; month < 12; month++) {
                 container.innerHTML += createMonthCalendar(year, month);
             }
         }
-        
-        document.addEventListener("DOMContentLoaded", createYearCalendar);
+        render();
     </script>
 </body>
 </html>

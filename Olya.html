@@ -243,14 +243,16 @@
             "2026-05-04","2026-05-05","2026-05-06"
         ];
 
+        // 4-й пакет: 6 мая – 2 июня (20 дней, розовый)
         const pkg4 = [
-            "2026-05-07","2026-05-08",
+            "2026-05-06","2026-05-07","2026-05-08",
             "2026-05-11","2026-05-12","2026-05-13","2026-05-14","2026-05-15",
             "2026-05-18","2026-05-19","2026-05-20","2026-05-21","2026-05-22",
             "2026-05-25","2026-05-26","2026-05-27","2026-05-28","2026-05-29",
             "2026-06-01","2026-06-02"
         ];
 
+        // Занятия Оли (среда) – 4 занятия в 4-м пакете: 6, 13, 20, 27 мая
         const lessons = [
             "2026-01-28","2026-02-04","2026-02-11","2026-02-18",
             "2026-02-25","2026-03-04","2026-03-11","2026-03-18",
@@ -268,7 +270,7 @@
             const dim = getDaysInMonth(y,m);
             const off = getFirstDayOfMonth(y,m);
             const total = Math.ceil((off + dim)/7)*7;
-            let html = `<div class="month-container"><div class="month-header">${monthNames[m]} ${y}</div><table class="calendar"><thead></td>`;
+            let html = `<div class="month-container"><div class="month-header">${monthNames[m]} ${y}</div><table class="calendar"><thead><tr>`;
             for (let wd of dayNames) {
                 const isW = (wd === "Сб" || wd === "Вс");
                 html += `<th${isW ? ' style="color:#e74c3c;"' : ''}>${wd}</th>`;
@@ -294,7 +296,7 @@
                     else if (in3) cls = "package-3";
                     else if (in4) cls = "package-4";
                     else if (inL) cls = "package-olya";
-                    html += `<td class="${cls}">${day}</td>`;
+                    html += `<td class="${cls}">${day}<tr>`;
                     day++;
                 } else {
                     let pm = m===0 ? 11 : m-1;
@@ -303,7 +305,7 @@
                     let pDay = pDim - (off - i - 1);
                     html += `<td class="other-month">${pDay}</td>`;
                 }
-                if (i%7===6) html += "<tr>";
+                if (i%7===6) html += "</tr>";
             }
             html += `</tbody></table></div>`;
             return html;

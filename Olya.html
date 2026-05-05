@@ -109,10 +109,10 @@
             background-color: #FFF9F0;
         }
 
-        .calendar td.package-1 { background-color: rgba(144, 238, 144, 0.4); font-weight: 600; }
-        .calendar td.package-2 { background-color: rgba(173, 216, 230, 0.5); font-weight: 600; }
-        .calendar td.package-3 { background-color: rgba(255, 218, 185, 0.6); font-weight: 600; }
-        .calendar td.package-4 { background-color: rgba(255, 182, 193, 0.5); font-weight: 600; }
+        .calendar td.package-1 { background-color: rgba(144, 238, 144, 0.4); font-weight: 600; color: #2c3e50; }
+        .calendar td.package-2 { background-color: rgba(173, 216, 230, 0.5); font-weight: 600; color: #2c3e50; }
+        .calendar td.package-3 { background-color: rgba(255, 218, 185, 0.6); font-weight: 600; color: #2c3e50; }
+        .calendar td.package-4 { background-color: rgba(255, 182, 193, 0.5); font-weight: 600; color: #2c3e50; }
 
         .calendar td.package-olya {
             font-weight: 700;
@@ -268,7 +268,7 @@
             const dim = getDaysInMonth(y,m);
             const off = getFirstDayOfMonth(y,m);
             const total = Math.ceil((off + dim)/7)*7;
-            let html = `<div class="month-container"><div class="month-header">${monthNames[m]} ${y}</div><table class="calendar"><thead><tr>`;
+            let html = `<div class="month-container"><div class="month-header">${monthNames[m]} ${y}</div><table class="calendar"><thead></td>`;
             for (let wd of dayNames) {
                 const isW = (wd === "Сб" || wd === "Вс");
                 html += `<th${isW ? ' style="color:#e74c3c;"' : ''}>${wd}</th>`;
@@ -303,7 +303,7 @@
                     let pDay = pDim - (off - i - 1);
                     html += `<td class="other-month">${pDay}</td>`;
                 }
-                if (i%7===6) html += "</tr>";
+                if (i%7===6) html += "<tr>";
             }
             html += `</tbody></table></div>`;
             return html;

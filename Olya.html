@@ -184,8 +184,8 @@
     const months = ["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"];
     const weekDays = ["Пн","Вт","Ср","Чт","Пт","Сб","Вс"];
 
-    // ------------------ ПАКЕТЫ (20 дней) ------------------
-    const pkg1 = [ // 28.01 – 24.02
+    // ----- ПАКЕТЫ (20 рабочих дней) -----
+    const pkg1 = [
         "2026-01-28","2026-01-29","2026-01-30",
         "2026-02-02","2026-02-03","2026-02-04","2026-02-05","2026-02-06",
         "2026-02-09","2026-02-10","2026-02-11","2026-02-12","2026-02-13",
@@ -193,7 +193,7 @@
         "2026-02-23","2026-02-24"
     ];
 
-    const pkg2 = [ // 25.02 – 24.03
+    const pkg2 = [
         "2026-02-25","2026-02-26","2026-02-27",
         "2026-03-02","2026-03-03","2026-03-04","2026-03-05","2026-03-06",
         "2026-03-09","2026-03-10","2026-03-11","2026-03-12","2026-03-13",
@@ -201,7 +201,7 @@
         "2026-03-23","2026-03-24"
     ];
 
-    const pkg3 = [ // 08.04 – 05.05
+    const pkg3 = [
         "2026-04-08","2026-04-09","2026-04-10",
         "2026-04-13","2026-04-14","2026-04-15","2026-04-16","2026-04-17",
         "2026-04-20","2026-04-21","2026-04-22","2026-04-23","2026-04-24",
@@ -209,7 +209,8 @@
         "2026-05-04","2026-05-05","2026-05-06"
     ];
 
-    const pkg4 = [ // 06.05 – 02.06 (розовый)
+    // 4-й пакет: 6 мая – 2 июня (розовый)
+    const pkg4 = [
         "2026-05-06","2026-05-07","2026-05-08",
         "2026-05-11","2026-05-12","2026-05-13","2026-05-14","2026-05-15",
         "2026-05-18","2026-05-19","2026-05-20","2026-05-21","2026-05-22",
@@ -217,7 +218,7 @@
         "2026-06-01","2026-06-02"
     ];
 
-    // ------------------ ЗАНЯТИЯ (среда) ------------------
+    // ----- ЗАНЯТИЯ (среда) -----
     const lessons = [
         "2026-01-28","2026-02-04","2026-02-11","2026-02-18",
         "2026-02-25","2026-03-04","2026-03-11","2026-03-18",
@@ -259,33 +260,33 @@
             const startOffset = getStartOffset(year, m);
             const totalCells = Math.ceil((startOffset + daysInMonth) / 7) * 7;
 
-            let tableHtml = `<div class="month-card"><div class="month-title">${months[m]} ${year}</div>
-                             <table class="calendar-table"><thead><tr>`;
+            let html = `<div class="month-card"><div class="month-title">${months[m]} ${year}</div>
+                        <table class="calendar-table"><thead></tr>`;
             for (let w of weekDays) {
                 const isW = (w === "Сб" || w === "Вс");
-                tableHtml += `<th${isW ? ' style="color:#e74c3c;"' : ''}>${w}</th>`;
+                html += `<th${isW ? ' style="color:#e74c3c;"' : ''}>${w}</th>`;
             }
-            tableHtml += `</thead><tbody>`;
+            html += `</thead><tbody>`;
 
             let day = 1;
             for (let i = 0; i < totalCells; i++) {
-                if (i % 7 === 0) tableHtml += "<tr>";
+                if (i % 7 === 0) html += "<tr>";
                 if (i >= startOffset && day <= daysInMonth) {
                     const dateStr = formatDate(year, m, day);
                     const cls = getCellClass(dateStr, year, m, day);
-                    tableHtml += `<td class="${cls}">${day}</td>`;
+                    html += `<td class="${cls}">${day}</td>`;
                     day++;
                 } else {
-                    let prevMonth = m === 0 ? 11 : m-1;
-                    let prevYear = m === 0 ? year-1 : year;
-                    let prevMonthDays = getDaysInMonth(prevYear, prevMonth);
-                    let prevDay = prevMonthDays - (startOffset - i - 1);
-                    tableHtml += `<td class="other-month">${prevDay}</td>`;
+                    let pm = m === 0 ? 11 : m-1;
+                    let py = m === 0 ? year-1 : year;
+                    let prevDays = getDaysInMonth(py, pm);
+                    let prevDay = prevDays - (startOffset - i - 1);
+                    html += `<td class="other-month">${prevDay}</td>`;
                 }
-                if (i % 7 === 6) tableHtml += "</tr>";
+                if (i % 7 === 6) html += "</tr>";
             }
-            tableHtml += `</tbody></table></div>`;
-            container.innerHTML += tableHtml;
+            html += `</tbody></table></div>`;
+            container.innerHTML += html;
         }
     }
 
